@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>This page is not fully developed yet</title>
+  <title>Protected Page</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -43,7 +43,7 @@
 </head>
 <body>
   <div id="login-container">
-    <h1>This page is not avalible to everyone yet, since it is still being coded. To access the site, please enter the password.</h1>
+    <h1>This page is not available to everyone yet, as it is still under development. Please enter the password to proceed.</h1>
     <input type="password" id="password" placeholder="Password">
     <button onclick="checkPassword()">Submit</button>
     <p id="error-message" class="hidden">Incorrect password. Try again.</p>
@@ -51,23 +51,26 @@
 
   <div id="protected-content" class="hidden">
     <h1>Welcome to the Protected Page!</h1>
-    <p>This content is visible after entering the correct password.</p>
+    <p>This content is visible only after entering the correct password.</p>
   </div>
 
   <script>
     const PASSWORD = "1234"; // Change this to your desired password.
 
     function checkPassword() {
+      console.log("Submit button clicked."); // Debugging log
       const input = document.getElementById("password").value;
       const errorMessage = document.getElementById("error-message");
       const protectedContent = document.getElementById("protected-content");
       const loginContainer = document.getElementById("login-container");
 
       if (input === PASSWORD) {
+        console.log("Password correct."); // Debugging log
         errorMessage.classList.add("hidden");
         loginContainer.classList.add("hidden");
         protectedContent.classList.remove("hidden");
       } else {
+        console.log("Password incorrect."); // Debugging log
         errorMessage.classList.remove("hidden");
       }
     }
