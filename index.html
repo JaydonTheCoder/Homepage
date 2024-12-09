@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Protected Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #login-container, #protected-content {
+      display: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    #login-container {
+      display: block;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    #error-message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="login-container">
+    <h1>Enter Password</h1>
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="checkPassword()">Submit</button>
+    <p id="error-message" class="hidden">Incorrect password. Try again.</p>
+  </div>
+
+  <div id="protected-content" class="hidden">
+    <h1>Welcome to the Protected Page!</h1>
+    <p>This content is visible after entering the correct password.</p>
+  </div>
+
+  <script>
+    const PASSWORD = "mypassword"; // Change this to your desired password.
+
+    function checkPassword() {
+      const input = document.getElementById("password").value;
+      const errorMessage = document.getElementById("error-message");
+      const protectedContent = document.getElementById("protected-content");
+      const loginContainer = document.getElementById("login-container");
+
+      if (input === PASSWORD) {
+        errorMessage.classList.add("hidden");
+        loginContainer.classList.add("hidden");
+        protectedContent.classList.remove("hidden");
+      } else {
+        errorMessage.classList.remove("hidden");
+      }
+    }
+  </script>
+</body>
+</html>
