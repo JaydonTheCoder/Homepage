@@ -40,12 +40,22 @@
     <button onclick="checkPassword()">Submit</button>
     <p id="error-message" class="hidden">Incorrect password. Try again.</p>
   </div>
-
+<!-------------------------PROTECTED PAGE CONTENT----------------------------->
   <div id="protected-content" class="hidden">
-    <h1>Welcome to the Protected Page!</h1>
-    <p>This content is visible only after entering the correct password.</p>
+    <h1>Welcome to the padlet homepage</h1>
+    <p>Choose a padlet to view.</p>
+    <padletoptions>The Music Padlet</padletoptions>
   </div>
-
+  <style>
+    padletoptions {
+      border-radius: 15px;
+      font-family: coustard;
+      border: 3px solid cornflowerblue;
+      display: inline;
+      padding: 10px;
+    }
+  </style>
+<!-------------------------END PROTECTED PAGE CONTENT------------------------->
   <script>
     const PASSWORD = "1234"; // Set the desired password.
 
